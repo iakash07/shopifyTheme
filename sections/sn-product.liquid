@@ -1,0 +1,384 @@
+{% assign product = all_products[section.settings.product] %}
+{% assign current_variant = product.selected_or_first_available_variant %}
+
+<style>
+  #sn-product {
+    background: {% if section.settings.bg %}url({{section.settings.bg | img_url:'1920x'}}){% endif %}{% if section.settings.section-bg == '' %} var(--bg-color){% else %}{{section.settings.section-bg}}{% endif %};
+      background-size: cover;
+      background-attachment: {{section.settings.bg_attachment}};
+      background-position: {{section.settings.bg_position}};
+      }
+
+  #sn-product:after{
+    background: {% if section.settings.overlay_bg %}url({{section.settings.overlay_bg | img_url:'1920x'}}){% endif %}{% if section.settings.overlay_color %}{{section.settings.overlay_color}}{% endif %};
+    opacity: {{section.settings.overlay_opacity}};
+    mix-blend-mode: {{section.settings.blend}};
+    -webkit-mix-blend-mode:{{section.settings.blend}} ;
+    -moz-mix-blend-mode:{{section.settings.blend}} ;
+    background-size: cover;
+    background-attachment: {{section.settings.bg_attachment2}};
+    background-position: {{section.settings.bg_position2}};
+  }
+</style>
+
+<div class="landing">
+<section id="sn-product" class="sn-section {% if section.settings.theme == 'light' %} light{% endif %}{% if section.settings.theme == 'dark' %} dark{% endif %}">
+  <div class="sn-container sn-vcenter">
+    <div class="sn-gallery">      
+      <div class="sn-product-images">
+        {% for image in product.images %}
+        <img src="{{image | img_url:'560x'}}" alt="" class="sn-img">
+        {% endfor %}        
+      </div>
+      <div class="sn-product-thumbs">
+        {% for image in product.images %}
+        <img src="{{image | img_url:'100x'}}" alt="" class="sn-img">
+        {% endfor %}
+      </div>
+    </div>
+    <div class="sn-desc">
+      {% if section.settings.product != '' %}
+      <h2>{{product.title}}</h2>
+      {% endif %}
+      {% if section.settings.rating %}
+      <div class="sn-rating">
+        <div class="sn-stars">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          {% if section.settings.stars == 'five' %}
+          <i class="fas fa-star"></i>
+          {% endif %}
+          {% if section.settings.stars == 'fourHalf' %}
+          <i class="fas fa-star-half-alt"></i>
+          {% endif %}
+          {% if section.settings.stars == 'four' %}
+          <i class="far fa-star"></i>
+          {% endif %}
+        </div>
+        <span>{{section.settings.rating}}</span>
+      </div>
+      {% endif %}
+      <ul class="sn-list">
+        {% for block in section.blocks %}
+        <li>{{block.settings.feature}}</li>
+        {% endfor %}
+      </ul>
+      {% if section.settings.product != '' %}
+      <p class="sn-price"><del>{{current_variant.compare_at_price | money}}</del><span>{{current_variant.price | money}}</span></p>
+      <a href="#" class="sn-btn">{{section.settings.btn}}</a>
+      {% endif %}
+    </div>
+  </div>
+</section>
+</div>
+<!-- featured product -->
+
+{% schema %}
+  {
+    "name": "Featured product - custom",
+    "settings": [
+		{
+          "type": "radio",
+          "id": "theme",
+          "label": "Color Theme",
+          "options": [
+            {
+              "value": "dark",
+              "label": "Dark"
+            },
+            {
+              "value": "light",
+              "label": "Light"
+            }
+          ],
+          "default": "light"
+        },
+		{
+          "type":"product",
+          "id":"product",
+          "label":"Product"
+		},
+		{
+          "type":"text",
+          "id":"rating",
+          "label":"Rating",
+          "default":"Rated 4.9/5.0"
+		},
+		{
+          "type": "radio",
+          "id": "stars",
+          "label": "Rating Stars",
+          "options": [
+            {
+              "value": "five",
+              "label": "5.0"
+            },
+            {
+              "value": "fourHalf",
+              "label": "4.5"
+            },
+            {
+              "value": "four",
+              "label": "4.0"
+            }
+          ],
+          "default": "fourHalf"
+        },
+		{
+          "type":"text",
+          "id":"btn",
+          "label":"Button Text",
+          "default":"Order Now"
+		},
+		{
+          "type":"color",
+          "id":"section-bg",
+          "label":"Background color"
+		},
+		{
+          "type":"image_picker",
+          "id":"bg",
+          "label":"Background image"
+		},
+		{
+          "type":"select",
+          "id":"bg_attachment",
+          "label":"Background attachment",
+          "options":[
+				{
+					"value":"fixed",
+					"label":"Fixed"
+				},
+				{
+					"value":"scroll",
+					"label":"Scroll"
+				}
+          ],
+          "default":"scroll"
+		},
+		{
+          "type":"select",
+          "id":"bg_position",
+          "label":"Background position",
+          "options":[
+				{
+					"value":"center center",
+					"label":"center center"
+				},
+				{
+					"value":"top center",
+					"label":"top center"
+				},
+				{
+					"value":"bottom center",
+					"label":"bottom center"
+				},
+				{
+					"value":"center left",
+					"label":"center left"
+				},
+				{
+					"value":"top left",
+					"label":"top left"
+				},
+				{
+					"value":"bottom left",
+					"label":"bottom left"
+				},
+				{
+					"value":"center right",
+					"label":"center right"
+				},
+				{
+					"value":"top right",
+					"label":"top right"
+				},
+				{
+					"value":"bottom right",
+					"label":"bottom right"
+				}
+          ],
+          "default":"center center"
+		},
+		{
+          "type":"color",
+          "id":"overlay_color",
+          "label":"Background overlay color"
+		},
+		{
+          "type":"image_picker",
+          "id":"overlay_bg",
+          "label":"Background overlay"
+		},
+		{
+          "type":"select",
+          "id":"bg_attachment2",
+          "label":"Background attachment",
+          "options":[
+				{
+					"value":"fixed",
+					"label":"Fixed"
+				},
+				{
+					"value":"scroll",
+					"label":"Scroll"
+				}
+          ],
+          "default":"scroll"
+		},
+		{
+          "type":"select",
+          "id":"bg_position2",
+          "label":"Background position",
+          "options":[
+				{
+					"value":"center center",
+					"label":"center center"
+				},
+				{
+					"value":"top center",
+					"label":"top center"
+				},
+				{
+					"value":"bottom center",
+					"label":"bottom center"
+				},
+				{
+					"value":"center left",
+					"label":"center left"
+				},
+				{
+					"value":"top left",
+					"label":"top left"
+				},
+				{
+					"value":"bottom left",
+					"label":"bottom left"
+				},
+				{
+					"value":"center right",
+					"label":"center right"
+				},
+				{
+					"value":"top right",
+					"label":"top right"
+				},
+				{
+					"value":"bottom right",
+					"label":"bottom right"
+				}
+          ],
+          "default":"center center"
+		},
+		{
+          "type": "range",
+          "id": "overlay_opacity",
+          "min": 0.1,
+          "max": 1.0,
+          "step": 0.1,
+          "label": "Overlay opacity",
+			"default":0.1
+		},
+		{
+          "type": "select",
+          "id": "blend",
+          "label": "Overlay blend mode",
+          "options": [
+              {
+                "value": "normal",
+                "label": "Normal"
+              },
+              {
+                "value": "multiply",
+                "label": "Multiply"
+              },
+              {
+                "value": "screen",
+                "label": "Screen"
+              },
+              {
+                "value": "overlay",
+                "label": "Overlay"
+              },
+              {
+                "value": "darken",
+                "label": "Darken"
+              },
+              {
+                "value": "lighten",
+                "label": "Lighten"
+              },
+              {
+                "value": "color-dodge",
+                "label": "Color-dodge"
+              },
+              {
+                "value": "color-burn",
+                "label": "Color-burn"
+              },
+              {
+                "value": "hard-light",
+                "label": "Hard-light"
+              },
+              {
+                "value": "soft-light",
+                "label": "Soft-light"
+              },
+              {
+                "value": "difference",
+                "label": "Difference"
+              },
+              {
+                "value": "exclusion",
+                "label": "Exclusion"
+              },
+              {
+                "value": "hue",
+                "label": "Hue"
+              },
+              {
+                "value": "saturation",
+                "label": "Saturation"
+              },
+              {
+                "value": "color",
+                "label": "Color"
+              },
+              {
+                "value": "luminosity",
+                "label": "Luminosity"
+              }
+          ],
+          "default": "normal"
+		}
+	],
+	"blocks":[
+		{
+			"type":"feature",
+			"name":"Feature",
+			"settings":[
+				{
+					"type":"text",
+					"id":"feature",
+					"label":"Feature text",
+					"default":"<strong>Feature:</strong> goes here"
+				}
+			]
+		}
+	],
+    "presets": [
+      {
+        "name": "Featured product - custom",
+        "category": "Custom"
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

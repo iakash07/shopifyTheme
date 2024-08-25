@@ -1,0 +1,530 @@
+body{
+  font-size: unset !important;
+  line-height: unset !important;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+  min-height: 0;
+	letter-spacing: 0 !important;
+}
+
+.light{
+	opacity: 1;
+}
+
+.site-footer-wrapper{
+  margin-top: 0;
+}
+
+video{
+  width: 100%;
+  max-height: 100%;
+}
+
+#byline{
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  justify-content: center;
+}
+
+#byline span{
+  margin-right: 10px;
+}
+
+#byline img{
+  height: 35px;
+  whitespace: no-wrap;
+  display: block;
+}
+
+.hidden, .mobile-only {
+  display: none;
+}
+
+.no-style{
+  text-decoration: unset;
+  color: unset;
+}
+
+.sn-section {
+  padding: 65px 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.sn-section:after{
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: block;
+  content: '';
+}
+
+.sn-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.sn-testimonial-slider {
+  width: 100%;
+  max-width: 1200px;
+  margin: 20px auto 0;
+}
+
+.slick-next:before,
+.slick-prev:before {
+  color: var(--primary-color);
+}
+
+.sn-img {
+  max-width: 100%;
+  display: block;
+}
+
+.sn-product-thumbs {
+  margin: 10px 30px;
+}
+
+.sn-aside-text, .sn-aside-spacer, .sn-banner-img {
+  width: 100%;
+  padding: 20px;
+  max-width: 50%;
+}
+
+.sn-banner-text{
+  max-width: 1000px;
+}
+
+.sn-aside-text{
+  padding: 45px;
+}
+
+.sn-aside-img{
+  width: 50%;
+  position: absolute;
+  height: 100%;
+  display: block;
+  content: '';
+  left: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.sn-about-in, .sn-intro-in {
+  padding: 20px;
+  max-width: 1000px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.sn-video-wrap {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 800px;
+    }
+
+.sn-benefits-wrap {
+  width: 100%;
+  max-width: 20%;
+  padding: 20px;
+}
+
+.sn-gallery,
+.sn-desc {
+  width: 100%;
+  max-width: 50%;
+  padding: 20px;
+}
+
+.sn-feature-wrap p {
+  margin-bottom: 0;
+}
+
+.sn-comment .sn-stars {
+  margin-bottom: 10px;
+}
+
+.sn-comment p.sn-name {
+  font-weight: bold;
+}
+
+.sn-title {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.sn-package-wrap img{
+  margin-bottom: 10px;
+}
+
+.landing .sn-product-wrap h4{
+  font-size: 1.125rem;
+  margin-top: 1.125rem;
+}
+
+.package-guarantee {
+  margin-top: 10px;
+  display: block;
+}
+
+.landing .package-guarantee p {
+  font-size: 0.875rem;
+  margin-bottom: 0;
+}
+
+.landing .sn-package-wrap .sn-btn {
+  width: 100%;
+  margin-top: 15px;
+}
+
+.sn-post-wrap img{
+  margin-bottom: 20px;
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.sn-feature-icon, .sn-guarantee-icon {
+  width: 108px;
+  height: 108px;
+  padding: 20px;
+  background: var(--primary-color);
+    display: block;
+    margin: 0 auto 20px;
+    content: '';
+    border-radius: 50%;
+    }
+
+.sn-benefit-img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+  content: '';
+  border: 3px solid var(--bg-color);
+    margin: 0 auto 20px;
+    }
+
+.sn-benefit-img img{
+  width: 100%;
+  height: 194px;
+  object-fit: cover;
+}
+
+.sn-testimonial-img {
+  width: 110px;
+  height: 110px;
+  overflow: hidden;
+  border-radius: 50%;
+  margin: 0 auto 20px;
+  content: '';
+  display: block;
+  background: var(--bg-color);
+    border: 5px solid rgba(0, 0, 0, 0.1);
+    }
+
+.sn-testimonial-img img{
+  width: 100%;
+  height: 110px;
+  object-fit: cover;
+}
+
+.sn-cta-in {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.landing .sn-btn {
+  padding: 8px 25px;
+  display: inline-block;
+  text-align: center;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: var(--btn-text);
+    background: var(--primary-color);
+      font-size: 1.5rem;
+      text-decoration: none;
+      margin-top: 10px;
+      border: 1px solid rgba(0, 0, 0, 0.15);
+      border-radius: var(--btn-radius);
+        border-bottom:5px solid rgba(0,0,0,0.15);
+          }
+
+.landing .sn-btn:hover {
+  background: var(--secondary-color);
+    color: var(--btn-text);
+      }
+
+.text-center {
+  text-align: center;
+}
+
+.sn-vcenter {
+  align-items: center;
+}
+
+.sn-hcenter {
+  justify-content: center;
+}
+
+.mt-10 {
+  margin-top: 10px;
+}
+
+.mt-20 {
+  margin-top: 20px;
+}
+
+.mb-10 {
+  margin-bottom: 10px;
+}
+
+.mb-20 {
+  margin-bottom: 20px;
+}
+
+.landing .sn-list {
+  -webkit-padding-start: 20px;
+  -moz-padding-start: 20px;
+  margin: 20px 0;
+}
+
+.landing .sn-list li {
+  font-size: 1.125rem;
+  padding-bottom: 0.438rem;
+  margin-bottom: 0.438rem;
+  border-bottom: 1px dashed rgba(0, 0, 0, 0.1);
+  color: var(--text-color);
+      }
+
+.sn-list li:last-child {
+  padding-bottom: 0;
+  margin-bottom: 0;
+  border: none;
+}
+
+.landing h1 {
+  font-size: 3.5rem;
+  text-transform: uppercase;
+  margin-bottom: 0;
+  color: var(--heading-color);
+      line-height: 1.2em;
+      }
+
+.landing h2 {
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+  text-transform: capitalize;
+  color: var(--heading-color);
+      line-height: 1.2em;
+      }
+
+.landing h4 {
+  font-size: 1.25rem;
+  margin-bottom: 0.625rem;
+  text-transform: capitalize;
+  color: var(--heading-color);
+      line-height: 1.4em;
+      }
+
+.landing p {
+  font-size: 1rem;
+  margin-bottom: 0.625rem;
+  color: var(--text-color);
+    line-height: 1.45em;
+      }
+
+.landing .sn-price span{
+  font-size: 1.625rem;
+    color: var(--primary-color);
+      margin-top: 10px;
+      }
+
+.landing .sn-price del {
+  font-size: 1rem;
+  margin-right: 10px;
+  opacity: 0.6;
+  color: var(--text-color);
+    }
+
+.sn-rating {
+  display: flex;
+}
+
+.sn-stars {
+  margin-right: 10px;
+  color: var(--stars);
+    }
+
+.landing span,
+.landing a {
+    font-size: 1rem;
+    color: var(--text-color);
+      }
+
+/* embed responsively */
+
+.embed-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+}
+
+.embed-container iframe,
+.embed-container object,
+.embed-container embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+
+/* embed responsively */
+
+/* product form */
+
+.sn-form-group{
+  width: 100%;
+  display: block;
+    margin-top: 10px;
+}
+
+.sn-form-group label{
+  margin-bottom: 5px;
+  font-size: 0.875rem;
+  display: block;
+  color: var(--text-color);
+}
+
+.sn-form-control{
+  width: 100%;
+  display: block;
+  padding: 7px 15px;
+  font-size: 1rem;
+  border-radius: var(--btn-radius);
+  border: 1px solid rgba(0,0,0,0.2);
+}
+
+/* product form */
+
+@media screen and (max-width: 992px) {
+  .sn-banner-text {
+    max-width: 90% !important;
+    margin: 0 auto;
+  }
+  .sn-banner-img{
+  	max-width: 100% !important;
+  }
+  .sn-banner-img img{
+    max-width: 100%;
+    margin: 0 auto;
+  }
+  .landing h1 {
+    font-size: 2rem;
+    text-align: center;
+  }
+  .landing .sn-banner-text h2{
+    text-align: center;
+  }
+  .landing .sn-banner-text .sn-btn{
+    margin: 15px auto;
+    width: 100%;
+  }
+  .landing .sn-banner-text .sn-rating{
+    justify-content: center;
+  }
+  .landing h2 {
+    font-size: 1.6rem;
+  }
+  .sn-section {
+    padding: 35px 10px;
+  }
+  .sn-feature-wrap {
+    max-width: calc(50% - 10px) !important;
+  }
+  .sn-video-wrap{
+    padding: 10px 20px;
+  }
+  .sn-product-wrap {
+    max-width: calc(33.3% - 10px) !important;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  :root {
+    font-size: 15px !important;
+  }
+  .mobile-only {
+    display: block;
+  }
+  .sn-section {
+    padding: 25px 10px;
+    background-attachment: scroll !important;
+  }
+  #sn-aside{
+    padding: 20px;
+  }
+  .sn-aside-img{
+    position: relative;
+    height: 200px;
+    max-width: 100%;
+    width: 100%;
+  }
+  .sn-section:after{
+    background-attachment: scroll !important;
+  }
+  .sn-intro-img, .sn-video-wrap{
+    padding: 0 20px;
+  }
+  .sn-aside-spacer{
+    padding: 0;
+  }
+  .sn-aside-text{
+  	padding: 20px 0;
+  }
+  .sn-banner-text,
+  .sn-banner-img,
+  .sn-benefits-wrap,
+  .sn-gallery,
+  .sn-desc, .sn-aside-text {
+    max-width: 100% !important;
+  }
+  .sn-feature-wrap,
+  .sn-guarantee-wrap,
+  .sn-package-wrap,
+  .sn-post-wrap {
+    max-width: calc(100% - 10px) !important;
+  }
+  .landing h1,
+  .landing h2,
+  .sn-price {
+    text-align: center;
+  }
+  .sn-rating {
+    justify-content: center;
+  }
+  .landing .sn-btn {
+    width: 100%;
+  }
+  .sn-product-wrap {
+    max-width: calc(50% - 10px) !important;
+  }
+}

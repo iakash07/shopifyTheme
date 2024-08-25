@@ -1,0 +1,359 @@
+<style>
+  #sn-cta {
+    background: {% if section.settings.bg %}url({{section.settings.bg | img_url:'1920x'}}){% endif %}{% if section.settings.section-bg == '' %} var(--bg-color){% else %}{{section.settings.section-bg}}{% endif %};
+      background-size: cover;
+      background-attachment: {{section.settings.bg_attachment}};
+      background-position: {{section.settings.bg_position}};
+      }
+
+  #sn-cta:after{
+    background: {% if section.settings.overlay_bg %}url({{section.settings.overlay_bg | img_url:'1920x'}}){% endif %}{% if section.settings.overlay_color %}{{section.settings.overlay_color}}{% endif %};
+    opacity: {{section.settings.overlay_opacity}};
+    mix-blend-mode: {{section.settings.blend}};
+    -webkit-mix-blend-mode:{{section.settings.blend}} ;
+    -moz-mix-blend-mode:{{section.settings.blend}} ;
+    background-size: cover;
+    background-attachment: {{section.settings.bg_attachment2}};
+    background-position: {{section.settings.bg_position2}};
+  }
+</style>
+
+<div class="landing">
+<section id="sn-cta" class="sn-section {% if section.settings.theme == 'light' %} light{% endif %}{% if section.settings.theme == 'dark' %} dark{% endif %}">
+  <div class="sn-container">
+    <div class="sn-cta-in text-center">
+      {% if section.settings.heading %}
+      <h2>{{section.settings.heading}}</h2>
+      {% endif %}
+      {% if section.settings.subheading %}
+      <h4>{{section.settings.subheading}}</h4>
+      {% endif %}
+      {% if section.settings.rating %}
+      <div class="sn-rating sn-hcenter mt-20 mb-20">
+        <div class="sn-stars">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          {% if section.settings.stars == 'five' %}
+          <i class="fas fa-star"></i>
+          {% endif %}
+          {% if section.settings.stars == 'fourHalf' %}
+          <i class="fas fa-star-half-alt"></i>
+          {% endif %}
+          {% if section.settings.stars == 'four' %}
+          <i class="far fa-star"></i>
+          {% endif %}
+        </div>
+        <span>{{section.settings.rating}}</span>
+      </div>
+      {% endif %}
+      {% if section.settings.btn %}
+      <a href="#sn-collection" class="sn-btn">{{section.settings.btn}}</a>
+      {% endif %}
+    </div>
+  </div>
+</section>
+</div>
+<!-- cta -->
+
+{% schema %}
+  {
+    "name": "CTA - custom",
+    "settings": [
+		{
+          "type": "radio",
+          "id": "theme",
+          "label": "Color Theme",
+          "options": [
+            {
+              "value": "dark",
+              "label": "Dark"
+            },
+            {
+              "value": "light",
+              "label": "Light"
+            }
+          ],
+          "default": "light"
+        },
+		{
+          "type":"text",
+          "id":"heading",
+          "label":"Heading",
+          "default":"Heading goes here"
+		},
+		{
+          "type":"text",
+          "id":"subheading",
+          "label":"Sub Heading",
+          "default":"Sub Heading goes here"
+		},
+		{
+          "type":"text",
+          "id":"rating",
+          "label":"Rating",
+          "default":"Rated 4.9/5.0"
+		},
+		{
+          "type": "radio",
+          "id": "stars",
+          "label": "Rating Stars",
+          "options": [
+            {
+              "value": "five",
+              "label": "5.0"
+            },
+            {
+              "value": "fourHalf",
+              "label": "4.5"
+            },
+            {
+              "value": "four",
+              "label": "4.0"
+            }
+          ],
+          "default": "fourHalf"
+        },
+		{
+          "type":"text",
+          "id":"btn",
+          "label":"Button Text",
+          "default":"Order Now"
+		},
+		{
+          "type":"color",
+          "id":"section-bg",
+          "label":"Background color"
+		},
+		{
+          "type":"image_picker",
+          "id":"bg",
+          "label":"Background image"
+		},
+		{
+          "type":"select",
+          "id":"bg_attachment",
+          "label":"Background attachment",
+          "options":[
+				{
+					"value":"fixed",
+					"label":"Fixed"
+				},
+				{
+					"value":"scroll",
+					"label":"Scroll"
+				}
+          ],
+          "default":"scroll"
+		},
+		{
+          "type":"select",
+          "id":"bg_position",
+          "label":"Background position",
+          "options":[
+				{
+					"value":"center center",
+					"label":"center center"
+				},
+				{
+					"value":"top center",
+					"label":"top center"
+				},
+				{
+					"value":"bottom center",
+					"label":"bottom center"
+				},
+				{
+					"value":"center left",
+					"label":"center left"
+				},
+				{
+					"value":"top left",
+					"label":"top left"
+				},
+				{
+					"value":"bottom left",
+					"label":"bottom left"
+				},
+				{
+					"value":"center right",
+					"label":"center right"
+				},
+				{
+					"value":"top right",
+					"label":"top right"
+				},
+				{
+					"value":"bottom right",
+					"label":"bottom right"
+				}
+          ],
+          "default":"center center"
+		},
+		{
+          "type":"color",
+          "id":"overlay_color",
+          "label":"Background overlay color"
+		},
+		{
+          "type":"image_picker",
+          "id":"overlay_bg",
+          "label":"Background overlay"
+		},
+		{
+          "type":"select",
+          "id":"bg_attachment2",
+          "label":"Background attachment",
+          "options":[
+				{
+					"value":"fixed",
+					"label":"Fixed"
+				},
+				{
+					"value":"scroll",
+					"label":"Scroll"
+				}
+          ],
+          "default":"scroll"
+		},
+		{
+          "type":"select",
+          "id":"bg_position2",
+          "label":"Background position",
+          "options":[
+				{
+					"value":"center center",
+					"label":"center center"
+				},
+				{
+					"value":"top center",
+					"label":"top center"
+				},
+				{
+					"value":"bottom center",
+					"label":"bottom center"
+				},
+				{
+					"value":"center left",
+					"label":"center left"
+				},
+				{
+					"value":"top left",
+					"label":"top left"
+				},
+				{
+					"value":"bottom left",
+					"label":"bottom left"
+				},
+				{
+					"value":"center right",
+					"label":"center right"
+				},
+				{
+					"value":"top right",
+					"label":"top right"
+				},
+				{
+					"value":"bottom right",
+					"label":"bottom right"
+				}
+          ],
+          "default":"center center"
+		},
+		{
+          "type": "range",
+          "id": "overlay_opacity",
+          "min": 0.1,
+          "max": 1.0,
+          "step": 0.1,
+          "label": "Overlay opacity",
+			"default":0.1
+		},
+		{
+          "type": "select",
+          "id": "blend",
+          "label": "Overlay blend mode",
+          "options": [
+              {
+                "value": "normal",
+                "label": "Normal"
+              },
+              {
+                "value": "multiply",
+                "label": "Multiply"
+              },
+              {
+                "value": "screen",
+                "label": "Screen"
+              },
+              {
+                "value": "overlay",
+                "label": "Overlay"
+              },
+              {
+                "value": "darken",
+                "label": "Darken"
+              },
+              {
+                "value": "lighten",
+                "label": "Lighten"
+              },
+              {
+                "value": "color-dodge",
+                "label": "Color-dodge"
+              },
+              {
+                "value": "color-burn",
+                "label": "Color-burn"
+              },
+              {
+                "value": "hard-light",
+                "label": "Hard-light"
+              },
+              {
+                "value": "soft-light",
+                "label": "Soft-light"
+              },
+              {
+                "value": "difference",
+                "label": "Difference"
+              },
+              {
+                "value": "exclusion",
+                "label": "Exclusion"
+              },
+              {
+                "value": "hue",
+                "label": "Hue"
+              },
+              {
+                "value": "saturation",
+                "label": "Saturation"
+              },
+              {
+                "value": "color",
+                "label": "Color"
+              },
+              {
+                "value": "luminosity",
+                "label": "Luminosity"
+              }
+          ],
+          "default": "normal"
+		}
+	],
+    "presets": [
+      {
+        "name": "CTA - custom",
+        "category": "Custom"
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
